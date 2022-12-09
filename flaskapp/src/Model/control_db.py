@@ -112,7 +112,7 @@ def find_good_by_entp_with_category(entp_id_list, category):
         },
         {"$unwind":"$info"},
         {"$project":
-            {"goodId": "$_id", "goodName": "$info.goodName", "goodSmlclsCode":"$info.goodSmlclsCode","priceAvg": "$avg", "_id": 0}
+            {"goodId": "$_id", "goodName": "$info.goodName", "goodSmlclsCode":"$info.goodSmlclsCode","goodAvgPrice": {"$round":["$avg",0]}, "_id": 0}
         },
         {
             "$match":
@@ -149,7 +149,7 @@ def find_good_by_entp(entp_id_list):
         },
         {"$unwind":"$info"},
         {"$project":
-            {"goodId": "$_id", "goodName": "$info.goodName", "goodSmlclsCode":"$info.goodSmlclsCode","priceAvg": "$avg", "_id": 0}
+            {"goodId": "$_id", "goodName": "$info.goodName", "goodSmlclsCode":"$info.goodSmlclsCode","goodAvgPrice": {"$round":["$avg",0]}, "_id": 0}
         }
     ]))
 
