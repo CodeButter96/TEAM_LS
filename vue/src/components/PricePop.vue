@@ -1,5 +1,5 @@
 <template>
-    <small class="text-muted tooltip-price" @mouseover="getPriceList(goodId)">가격
+    <small class="tooltip-price" @mouseover="getPriceList(goodId)"><slot></slot>
         <div class="tooltip-text">
             <h6>가격정보</h6>
             <table>

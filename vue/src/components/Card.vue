@@ -9,11 +9,13 @@
             </div>
         </div>
         <div class="card-body">
-            <h6 class="card-title">{{item.goodName}}</h6>
-            <h6 class="card-subtitle mb-2">
+            <small class="card-subtitle mb-2" style="color: rgb(153,153,153);">
                 {{category[parseInt(item.goodSmlclsCode/1000)]}}
-            </h6>
-            <PricePop :goodId="item.goodId" />
+            </small>
+            <h6 class="card-title">{{item.goodName}}</h6>
+            <PricePop :goodId="item.goodId">
+                <h6 style="font-weight: bold;">{{(item.goodAvgPrice.toLocaleString())}}원</h6>
+            </PricePop>
         </div>
     </div>
 
@@ -61,7 +63,6 @@ export default {
         message : ''
         };
     },
-
     methods : {
         addOrder(item) {
             this.$store.dispatch("addOrder", item);
